@@ -25,8 +25,11 @@ public class Pages {
         allowedPages.put("/main", "main.jsp");
         allowedPages.put("/index.jsp", "main.jsp");
         allowedPages.put("/index", "main.jsp");
+        
         allowedPages.put("/test", "test.jsp");
         allowedPages.put("/loginreg", "loginreg.jsp");
+
+        allowedPages.put("/listAllMembers", "listAllMembers.jsp");
     }
 
     // Check if page is allowed 
@@ -43,6 +46,24 @@ public class Pages {
         return allowedPages.get(input);
     }
 
-    
+    // Reroutes to login if login object is not valid or not found
+//    public String loginReroute(HttpServletRequest request, String appendUri, String currentPage) {
+//        HttpSession session = request.getSession();
+//        serv.Login loginInfo = (serv.Login) session.getAttribute("login");
+//        
+//        if (loginInfo == null) {
+//            request.getSession().setAttribute("originalPage", appendUri + currentPage);
+//            request.setAttribute("alert", "Session has timed out, please re-login");
+//            return "loginreg.jsp";
+//        } else {
+//            if (!loginInfo.isLoggedIn()) {
+//                request.getSession().setAttribute("originalPage", appendUri + currentPage);
+//                request.setAttribute("alert", "Session has timed out, please re-login");
+//                return "loginreg.jsp";
+//            }
+//        }
+//        return currentPage;
+//    }
+ 
 
 }

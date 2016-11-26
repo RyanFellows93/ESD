@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Jdbc;
 import model.Pages;
 
 /**
@@ -38,8 +37,9 @@ public class UserServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String pageName;
-        Pages page = new Pages();
-
+        Pages page = new Pages();   
+        
+        
         // Gets the intended page name by stripping context path off the URI
         String requestedPage = request.getRequestURI().replace(request.getContextPath() + "/docs", "");
 
@@ -53,7 +53,8 @@ public class UserServlet extends HttpServlet {
             pageName = page.redirect(requestedPage);
         }
 
-       
+      //  pageName = page.loginReroute(request, appendUri, pageName);
+
         request.setAttribute("page", appendUri + pageName);
 
         // Dispatches and forwards back to view
